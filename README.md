@@ -28,7 +28,9 @@ then type ionic serve
 
 <h4>##Sample Screens</h4>
 
-
+<img src="https://github.com/ffapns/MultiplayerFlappyBird/blob/master/Screenshots/FlappybirdMainScreen.PNG">
+<img src="https://github.com/ffapns/MultiplayerFlappyBird/blob/master/Screenshots/FlappyBirdPlay.PNG">
+<img src="https://github.com/ffapns/MultiplayerFlappyBird/blob/master/Screenshots/FlappyBird%20GameOver.PNG">
 
 
 <h4>##What's coming next?</h4>
