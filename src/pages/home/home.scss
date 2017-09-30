@@ -1,3 +1,33 @@
-page-home {
+.backgound-image {
+    background-image: url('../assets/images/bg.png');
+    width: 100%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
 
+.flappyico {
+    width: 30%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.play-btn {
+    display: block;
+    font-size: 14px;
+    text-align: center;
+    background: transparent;
+}
+
+.home .scroll-content {
+    display: table !important;
+    width: 100% !important;
+    height: 100% !important;
+    /* the height of the centered content */
+    text-align: center;
+}
+
+.home .scroll {
+    display: table-cell;
+    vertical-align: middle;
 }

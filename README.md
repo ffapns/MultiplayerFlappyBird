@@ -1,26 +1,53 @@
-This is a starter template for [Ionic](http://ionicframework.com/docs/) projects.
+##Hybrid Application Development
 
-## How to use this template
 
-*This template does not work on its own*. The shared files for each starter are found in the [ionic2-app-base repo](https://github.com/ionic-team/ionic2-app-base).
+##Project:
 
-To use this template, either create a new ionic project using the ionic node.js utility, or copy the files from this repository into the [Starter App Base](https://github.com/ionic-team/ionic2-app-base).
+FlappyBird Multiplayer
 
-### With the Ionic CLI:
 
-Take the name after `ionic2-starter-`, and that is the name of the template to be used when using the `ionic start` command below:
+##How to install ?
 
-```bash
-$ sudo npm install -g ionic cordova
-$ ionic start myBlank blank
-```
+1. Install Node.js
+2. Install Ionic CLI by typing npm install -g cordova ionic
+2. Download the project and go into the project directory with your console
+3. Install Dependencies by typing npm install in your console
 
-Then, to run it, cd into `myBlank` and run:
 
-```bash
-$ ionic cordova platform add ios
-$ ionic cordova run ios
-```
+##Start the App
 
-Substitute ios for android if not on a Mac.
+cd <project_directory>
+then type ionic serve
+
+
+##Features
+
+- Multiplayer Flappybird game !
+- Instant score updates
+- Share your scores to your friends
+
+##Sample Screens
+
+   
+
+##What's coming next?
+
+- Login with Facebook
+- Set your flappy name 
+- Join the flappy game world
+- Record your high score
+- Share the score to your friends
+
+
+
+
+
+
+
+
+
+
+
+
+
 
