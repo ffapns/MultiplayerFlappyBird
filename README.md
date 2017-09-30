@@ -35,7 +35,7 @@ then type ionic serve
 - Login with Facebook
 - Set your flappy name 
 - Join the flappy game world
-- Record your high score
+- Record your high scores
 - Share the score to your friends
 
 
