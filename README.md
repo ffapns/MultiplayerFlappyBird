@@ -1,12 +1,12 @@
-##Hybrid Application Development
+<h1>##Hybrid Application Development</h1>
 
 
-##Project:
+<h2>##Project:</h2>
 
-FlappyBird Multiplayer
+<h3>FlappyBird Multiplayer</h3>
 
 
-##How to install ?
+<h4>##How to install ?</h4>
 
 1. Install Node.js
 2. Install Ionic CLI by typing npm install -g cordova ionic
@@ -14,23 +14,24 @@ FlappyBird Multiplayer
 3. Install Dependencies by typing npm install in your console
 
 
-##Start the App
+<h4>##Start the App</h4>
 
 cd <project_directory>
 then type ionic serve
 
 
-##Features
+<h4>##Features</h4>
 
 - Multiplayer Flappybird game !
 - Instant score updates
 - Share your scores to your friends
 
-##Sample Screens
+<h4>##Sample Screens</h4>
 
-   
 
-##What's coming next?
+
+
+<h4>##What's coming next?</h4>
 
 - Login with Facebook
 - Set your flappy name 
