@@ -6,8 +6,10 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
+
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+
 
 
 
@@ -16,14 +18,18 @@ import { HttpModule } from '@angular/http';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireModule } from 'angularfire2';
 import { FirebaseProvider } from '../providers/firebase/firebase';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { AuthServiceProvider } from '../providers/auth-service/auth-service';
+import { Facebook } from '@ionic-native/facebook';
 
 // AF2 Settings
 export const firebaseConfig = {
- apiKey: "AIzaSyDnAX0CQbbsMYuOTJ66ox_F0GwzPM4XPXY",
- authDomain: "angularfire2-list-example.firebaseapp.com",
- databaseURL: "https://angularfire2-list-example.firebaseio.com",
- storageBucket: "",
- messagingSenderId: "609067141823"
+  apiKey: "AIzaSyCVYSPaG7oAxmNJXmyE84AIR7VWivOmDdM",
+  authDomain: "multiplayer-flappybird.firebaseapp.com",
+  databaseURL: "https://multiplayer-flappybird.firebaseio.com",
+  projectId: "multiplayer-flappybird",
+  storageBucket: "multiplayer-flappybird.appspot.com",
+  messagingSenderId: "49946637832"
 };
 
 @NgModule({
@@ -49,7 +55,12 @@ export const firebaseConfig = {
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    FirebaseProvider
+    FirebaseProvider,
+    AngularFireAuth,
+    Facebook,
+    AuthServiceProvider,
+
+
   ]
 })
 

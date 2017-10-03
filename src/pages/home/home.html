@@ -1,8 +1,4 @@
 <ion-content padding class="backgound-image home">
-    <!-- <h1>Multiplayer FlappyBird</h1>
-    <ion-item>
-        <ion-input class="play-btn" type="text" placeholder="Player Name"></ion-input>
-    </ion-item> -->
 
     <ion-grid>
         <ion-row>
@@ -16,14 +12,31 @@
             </ion-col>
         </ion-row>
         <ion-row>
+            <ion-col col-4>
+            </ion-col>
+            <ion-col col-4>
+                <ion-card *ngIf="userProfile">
+                    <ion-card-header>Logged in as: <b>{{ userProfile.user.displayName }}</b> </ion-card-header>
+                    <img class="profileImage" [src]="userProfile.user.photoURL" />
+                </ion-card>
+            </ion-col>
+            <ion-col col-4>
+            </ion-col>
+        </ion-row>
+        <ion-row>
             <ion-col col-12>
+                <button ion-button color="dark" outline (click)="signInWithFacebook()">Signin with Facebook</button>
+
+
+            </ion-col>
+            <ion-col col-12>
+
+                <button ion-button color="light" outline (click)="signout">SignOut</button>
                 <button ion-button color="dark" (click)="playGame()">Play</button>
             </ion-col>
         </ion-row>
+
     </ion-grid>
-
-
-
 
 
 </ion-content>

@@ -1,12 +1,9 @@
+import { FirebaseObjectObservable } from 'angularfire2/database/firebase_object_observable';
+import { FirebaseProvider } from './../../providers/firebase/firebase';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
-/**
- * Generated class for the GamePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 
 @Component({
   selector: 'page-game',
@@ -14,8 +11,10 @@ import { NavController } from 'ionic-angular';
 })
 export class GamePage {
 
-  constructor(public navCtrl: NavController) {
+  shareConstant: FirebaseListObservable<any>
 
+  constructor(public navCtrl: NavController, public _firebase:FirebaseProvider) {
+      // console.log(this.shareConstant);
   }
 
   ionViewDidLoad() {
@@ -60,7 +59,7 @@ class FlappyBird extends Phaser.State{
 
           this.game.load.audio('jump', '../assets/images/jump.wav');
 
-          this.game.load.audio('hit', '../assets/images/sfx_hit.wav');
+          this.game.load.audio('hit', '../assets/images/sfx_hit.mp3');
 
 
         }
@@ -190,7 +189,7 @@ class FlappyBird extends Phaser.State{
 
       constructor() {
 
-        super(400, window.screen.height, Phaser.AUTO, 'content', null);
+        super(900, 768, Phaser.AUTO, 'content', null);
 
         this.state.add('Main', FlappyBird, false);
 
