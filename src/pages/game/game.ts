@@ -1,4 +1,3 @@
-
 import { FirebaseObjectObservable } from 'angularfire2/database/firebase_object_observable';
 import { FirebaseProvider } from './../../providers/firebase/firebase';
 import { Component } from '@angular/core';
@@ -19,7 +18,7 @@ import { Preload } from './game_files/preload';
 })
 export class GamePage {
 
-  shareConstant: FirebaseListObservable<any>
+  private shareConstant: FirebaseListObservable<any>
 
   constructor(public navCtrl: NavController, public _firebase:FirebaseProvider) {
       // console.log(this.shareConstant);
@@ -29,7 +28,10 @@ export class GamePage {
     var myGame = new Game();
   }
 
+
 }
+
+
 
 class Main extends Phaser.State {
 
@@ -60,6 +62,8 @@ class Main extends Phaser.State {
       cursors: Phaser.CursorKeys;
 
       emitter: any;
+
+      public static jumpSpeed: number = 500;
 
 
 
@@ -119,17 +123,19 @@ class Main extends Phaser.State {
 
 		    //Make the sprite jump when the up key is pushed
 	      if(this.cursors.up.isDown) {
-          this.player.body.velocity.y -= 80;
+          this.player.body.velocity.y = -350;
+          this.game.add.tween(this.player).to({angle: -20}, 100).start();
+
+          //this.jumpSound.play();
         }
 
-        if (this.player.angle < 20)
-          this.player.angle += 1;
+
       }
 
       gameOver(){
         this.particleBurst(this.player.body.position.x + (this.player.body.width / 2), this.player.body.position.y + (this.player.body.height / 2));
         this.player.kill();
-
+        //this.hitSound.play();
         //Wait a little bit before restarting game
         this.game.time.events.add(1000, function(){
           this.game.state.start('Main');
@@ -198,6 +204,8 @@ class Main extends Phaser.State {
         //Make the player fall by applying gravity
         this.player.body.gravity.y = 1000;
 
+
+
         //Make the player collide with the game boundaries
         this.player.body.collideWorldBounds = true;
 
@@ -225,6 +233,7 @@ class Main extends Phaser.State {
         this.emitter.y = y;
 
         this.emitter.start(true, 2000, null, 20);
+
       }
 
   }
