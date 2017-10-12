@@ -20,6 +20,7 @@ import { Facebook } from '@ionic-native/facebook';
 
 import * as $ from 'jquery';
 import * as io from 'socket.io-client';
+import { HttpserviceProvider } from '../providers/httpservice/httpservice';
 
 // AF2 Settings
 export const firebaseConfig = {
@@ -58,6 +59,7 @@ export const firebaseConfig = {
     AngularFireAuth,
     Facebook,
     AuthServiceProvider,
+    HttpserviceProvider,
   ],
 })
 

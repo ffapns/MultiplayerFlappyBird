@@ -4,8 +4,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
-
-
+import { HttpserviceProvider } from './../../providers/httpservice/httpservice';
 import { Boot } from './game_files/boot';
 import { GameOver } from './game_files/gameover';
 import { GameTitle } from './game_files/gametitle';
@@ -20,7 +19,7 @@ export class GamePage {
 
   private shareConstant: FirebaseListObservable<any>
 
-  constructor(public navCtrl: NavController, public _firebase:FirebaseProvider) {
+  constructor(public navCtrl: NavController, public _firebase:FirebaseProvider, private httpserivceProvider: HttpserviceProvider) {
       // console.log(this.shareConstant);
   }
 

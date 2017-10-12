@@ -9,13 +9,22 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class FirebaseProvider {
 
-  private userList: FirebaseListObservable<any>
+  private userList: FirebaseListObservable<any[]>
   private shareConstant: FirebaseObjectObservable<any>
 
 
   constructor(public af: AngularFireDatabase) {
-      // this.userList = af.list('/Users');
+      this.userList = af.list('/Users');
+  }
 
+  assignPlayerToServer(uIp: any) {
+    var data = [{
+      "uip": uIp.ip,
+      // "displayName": userProfile.user.displayName,
+      // "photoURL": userProfile.user.photoURL,
+      // "email": userProfile.user.email,
+    }];
+    this.userList.push(data);
   }
 
 
@@ -31,14 +40,14 @@ export class FirebaseProvider {
     return this.shareConstant;
   }
 
-  saveUserProfile(userProfile:any){
-    var ref = this.af.object('Users/' + userProfile.user.uid)
-    var data = {
-      "uid": userProfile.user.uid,
-      "displayName": userProfile.user.displayName,
-      "photoURL": userProfile.user.photoURL,
-      "email": userProfile.user.email,
-    };
+  saveUserProfile(userIp:any){
+    var ref = this.af.object('Users/')
+    var data = [{
+      "uip": userIp,
+      // "displayName": userProfile.user.displayName,
+      // "photoURL": userProfile.user.photoURL,
+      // "email": userProfile.user.email,
+    }];
 
     return ref.set(data).then(function () {
       return console.log(data);
