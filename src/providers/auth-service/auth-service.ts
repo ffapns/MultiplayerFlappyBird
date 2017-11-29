@@ -10,22 +10,20 @@ export class AuthServiceProvider {
 
     private currentUser: any;
 
-
+    af:any;
     userData = {
-      user: {
-        uid: "",
-        displayName: "",
-        email: "",
-        photoURL: "",
-      },
+      uid: "",
+      displayName: "",
+      email: "",
+      photoURL: "",
+      score: 0,
     };
 
     constructor(public afAuth: AngularFireAuth, public platform: Platform) {
       afAuth.authState.subscribe((user: firebase.User) => this.currentUser = user);
-    }
-
-    get authenticated(): boolean {
-      return this.currentUser !== null;
+      platform.ready().then(() => {
+        this.af = afAuth;
+      });
     }
 
     signInWithFacebook(): firebase.Promise<any> {
@@ -49,10 +47,11 @@ export class AuthServiceProvider {
     getUserProfile(): any {
 
       if (this.currentUser !== null) {
-        this.userData.user.uid = this.currentUser.user.uid;
-        this.userData.user.displayName = this.currentUser.user.displayName;
-        this.userData.user.email = this.currentUser.user.email;
-        this.userData.user.photoURL = this.currentUser.user.photoURL;
+        this.userData.uid = this.currentUser.user.uid;
+        this.userData.displayName = this.currentUser.user.displayName;
+        this.userData.email = this.currentUser.user.email;
+        this.userData.photoURL = this.currentUser.user.photoURL;
+        this.userData.score = 0;
 
         return this.userData;
       }

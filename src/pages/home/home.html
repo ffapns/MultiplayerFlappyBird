@@ -1,89 +1,30 @@
 <ion-content padding class="backgound-image home">
 
+    <ion-grid>
 
-    <div id="gameScreen">
+        <ion-row>
 
-
-        <canvas id="gs-canvas" width="900" height="768"></canvas>
-
-        <div id="gs-loader" class="inGamePanel overlay">
-
-
-
-            <ion-grid>
-                <ion-row>
-                    <ion-col col-12>
-                        <div id="gs-loader-anim-box">
-                            <div id="gs-loader-anim-bird"></div>
-                        </div>
-                    </ion-col>
-                </ion-row>
-                <ion-row>
-                    <ion-col col-12>
-                        <h2 id="gs-loader-text">Welcome to Multy Flappybird</h2>
-                    </ion-col>
-                </ion-row>
-                <!-- <ion-row>
-                    <ion-col col-4>
-                    </ion-col>
-                    <ion-col col-4>
-                        <ion-card *ngIf="userProfile">
-                            <ion-card-header>Logged in as: <b>{{ userProfile.user.displayName }}</b> </ion-card-header>
-                            <img class="profileImage" [src]="userProfile.user.photoURL" />
-                        </ion-card>
-                    </ion-col>
-                    <ion-col col-4>
-                    </ion-col>
-                </ion-row> -->
-                <ion-row>
-                    <!-- <ion-col col-12>
-                        <button ion-button color="dark" outline (click)="signInWithFacebook()">Signin with Facebook</button>
+            <ion-col col-12>
+                <ion-img style="width: 250px; height: 150px; background: none !important" src="../assets/images/multyFlappyBird.png"></ion-img>
+            </ion-col>
+        </ion-row>
 
 
-                    </ion-col> -->
-                    <ion-col col-12>
 
-                        <!-- <button ion-button color="light" outline (click)="signout">SignOut</button> -->
-                        <button ion-button color="dark" (click)="playGame()">Play</button>
-                    </ion-col>
-                </ion-row>
-
-            </ion-grid>
-
-        </div>
+        <ion-row>
+            <ion-col col-12>
+                <ion-img style="width: 100px; height: 100px; background: none !important" src="../assets/images/tenor.gif"></ion-img>
+            </ion-col>
+        </ion-row>
 
 
-        <!-- <div id="gs-ranking" class="inGamePanel">
-            <h1 id="gs-ranking-title">Game Over</h1>
-            <div id="gs-ranking-box">
-                <div class="gs-ranking-panel">
-                    <h3>Medal</h3>
-                    <div class="gs-ranking-medal"></div>
-                    <strong id="gs-ranking-pos" class="gs-ranking-text gs-ranking-text-mini">- / -</strong>
-                </div>
-                <div class="gs-ranking-panel">
-                    <h3>Score</h3>
-                    <strong id="gs-ranking-score" class="gs-ranking-text">-</strong>
-                    <h3>Best</h3>
-                    <strong id="gs-ranking-best" class="gs-ranking-text">-</strong>
-                </div>
-            </div>
-        </div> -->
+        <ion-row>
+            <ion-col col-12>
+                <button ion-button color="dark" outline (click)="signInWithFacebook()">Signin with Facebook</button>
+            </ion-col>
+        </ion-row>
 
-        <!-- <div id="gs-highscores" class="inGamePanel">
-            <h1 id="gs-highscores-title">High Scores</h1>
-            <div id="gs-highscores-box">
-                <ul id="gs-highscores-scores">
-                </ul>
-            </div>
-        </div> -->
-
-        <!-- <div id="gs-error" class="inGamePanel">
-            <h1 id="gs-error-title">Ouuuuuups :(</h1>
-            <h2 id="gs-error-message">Something goes wrong. Please reload the page</h2>
-        </div> -->
-
-    </div>
+    </ion-grid>
 
 
 </ion-content>

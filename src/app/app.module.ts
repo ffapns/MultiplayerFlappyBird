@@ -8,19 +8,25 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { LandingPage } from '../pages/landing/landing';
 
 // Import the AF2 Module
 import { Http, HttpModule } from '@angular/http';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
-import { AngularFireModule } from 'angularfire2';
 import { FirebaseProvider } from '../providers/firebase/firebase';
-import { AngularFireAuth } from 'angularfire2/auth';
 import { AuthServiceProvider } from '../providers/auth-service/auth-service';
 import { Facebook } from '@ionic-native/facebook';
 
-import * as $ from 'jquery';
-import * as io from 'socket.io-client';
-import { HttpserviceProvider } from '../providers/httpservice/httpservice';
+// import * as $ from 'jquery';
+// import * as io from 'socket.io-client';
+// import { HttpserviceProvider } from '../providers/httpservice/httpservice';
+
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule, AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
+
+
+import * as firebase from 'firebase/app';
+
 
 // AF2 Settings
 export const firebaseConfig = {
@@ -37,6 +43,7 @@ export const firebaseConfig = {
     MyApp,
     HomePage,
     GamePage,
+    LandingPage,
   ],
   imports: [
     BrowserModule,
@@ -50,6 +57,7 @@ export const firebaseConfig = {
     MyApp,
     HomePage,
     GamePage,
+    LandingPage
   ],
   providers: [
     StatusBar,
@@ -59,7 +67,7 @@ export const firebaseConfig = {
     AngularFireAuth,
     Facebook,
     AuthServiceProvider,
-    HttpserviceProvider,
+
   ],
 })
 
