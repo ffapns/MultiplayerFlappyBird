@@ -52,13 +52,13 @@ $ ionic cordova run android
 
 
 
-<h4>##Current Features</h4>
+<h4>Current Features</h4>
 
 - Login with Facebook
 - Play Offline !!
 
 
-<h4>##PROTOTYPES</h4>
+<h4>PROTOTYPES</h4>
 
 
 <img src="https://github.com/ffapns/MultiplayerFlappyBird/blob/master/Utilities/Prototype.png">
@@ -92,7 +92,8 @@ Software Main Architecture
 - Record your high scores
 - Share the score to your friends
 
-Known issues and bugs
+<h4>Known issues and bugs</h4>
+
 - Ionic doesn't support for the free phaser but if you want to, you have to buy 
 [IonPhaser](https://market.ionicframework.com/plugins/ionphaser).
 - So, this will cause a bug when you deploy on device which you can't get into the game section.
@@ -100,7 +101,7 @@ Known issues and bugs
 - Some bugs from the Phaser framework that causes the native display problem.
 
 
-Contributors
+<h4>Contributors</h4>
 - Panusorn Srijamorn
 
 
