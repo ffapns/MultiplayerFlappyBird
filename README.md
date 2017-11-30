@@ -64,7 +64,7 @@ $ ionic cordova run android
 <img src="https://github.com/ffapns/MultiplayerFlappyBird/blob/master/Utilities/Prototype.png">
 
 
-<h4>Framework & API</h4>
+<h4>Frameworks & APIs</h4>
 
 - [Ionic 2](https://ionicframework.com) & [Cordova](https://cordova.apache.org) - The hybrid application framework
 - [Firebase](https://firebase.google.com) - Used for authentication, realtime database, cloud storage and hosting
