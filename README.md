@@ -1,16 +1,16 @@
-<h1>##Hybrid Application Development</h1>
+<h1>Hybrid Application Development</h1>
 
 
-<h2>##Project:</h2>
+<h2>Project:</h2>
 
-<h3>MULTY FLAPPYBIRD</h3>
+<h4>MULTY FLAPPYBIRD</h4>
 
 <p>The application that bring the most popular game in the past which is Flappybird to be implemented as a hybrid game application.</p>
 <a>https://github.com/ffapns/MultiplayerFlappyBird/blob/master/About-MultyFlappybird.pdf</a>
 <img src="https://github.com/ffapns/MultiplayerFlappyBird/blob/master/Utilities/MultyFlappyBird@2x.png">
 
 
-<h4>##How to install ?</h4>
+<h2>How to install ?</h2>
 
 1. Install Node.js
 
@@ -30,7 +30,7 @@ npm install
 ```
 
 
-<h3>Start the App</h4>
+<h4>Start the App</h4>
 
 ```bash
 cd <project_directory>
@@ -64,7 +64,7 @@ $ ionic cordova run android
 <img src="https://github.com/ffapns/MultiplayerFlappyBird/blob/master/Utilities/Prototype.png">
 
 
-# Framework & API
+Framework & API
 -[Ionic 2](https://ionicframework.com) & [Cordova](https://cordova.apache.org) - The hybrid application framework
 - [Firebase](https://firebase.google.com) - Used for authentication, realtime database, cloud storage and hosting
 - [Phaser](http://phaser.io/) - Desktop & Mobile HTML5 Game Framework
@@ -72,7 +72,7 @@ $ ionic cordova run android
 
 
 
-# Software Main Architecture
+Software Main Architecture
 <h4>Game Architecture</h4>
    <p>This is the state based</p> 
    <p>
@@ -84,7 +84,7 @@ $ ionic cordova run android
     </ul>
    </p>
 
-<h4>##What's coming next?</h4>
+<h4>What's coming next?</h4>
 
 - Set your flappy name 
 - Join the flappy game world
@@ -92,7 +92,7 @@ $ ionic cordova run android
 - Record your high scores
 - Share the score to your friends
 
-# Known issues and bugs
+Known issues and bugs
 - Ionic doesn't support for the free phaser but if you want to, you have to buy 
 [IonPhaser](https://market.ionicframework.com/plugins/ionphaser).
 - So, this will cause a bug when you deploy on device which you can't get into the game section.
@@ -100,7 +100,7 @@ $ ionic cordova run android
 - Some bugs from the Phaser framework that causes the native display problem.
 
 
-# Contributors
+Contributors
 - Panusorn Srijamorn
 
 
