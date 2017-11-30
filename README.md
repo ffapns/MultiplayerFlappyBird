@@ -58,22 +58,23 @@ $ ionic cordova run android
 - Play Offline !!
 
 
-<h4>PROTOTYPES</h4>
+<h4>Prototypes</h4>
 
 
 <img src="https://github.com/ffapns/MultiplayerFlappyBird/blob/master/Utilities/Prototype.png">
 
 
-Framework & API
+<h4>Framework & API</h4>
+
 -[Ionic 2](https://ionicframework.com) & [Cordova](https://cordova.apache.org) - The hybrid application framework
 - [Firebase](https://firebase.google.com) - Used for authentication, realtime database, cloud storage and hosting
 - [Phaser](http://phaser.io/) - Desktop & Mobile HTML5 Game Framework
 - [AngularFire](https://github.com/angular/angularfire2) - The official library for Firebase and Angular
 
 
+<h4>Software Main Architecture</h4>
 
-Software Main Architecture
-<h4>Game Architecture</h4>
+<strong>Game Architecture</strong>
    <p>This is the state based</p> 
    <p>
     <ul>
