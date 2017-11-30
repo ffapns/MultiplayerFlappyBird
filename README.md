@@ -6,7 +6,7 @@
 <h4>Breakybird (Flappybird Cloned)</h4>
 
 <p>The application that bring the most popular game in the past which is Flappybird to be implemented as a hybrid game application.</p>
-<a>https://github.com/ffapns/MultiplayerFlappyBird/blob/master/About-MultyFlappybird.pdf</a>
+<a>https://github.com/ffapns/MultiplayerFlappyBird/blob/master/BreakyBird.pdf</a>
 <img src="https://github.com/ffapns/MultiplayerFlappyBird/blob/master/Utilities/MultyFlappyBird@2x.png">
 
 
