@@ -25,7 +25,7 @@ npm install
 ```
 
 
-<h4>##Start the App</h4>
+<h3>Start the App</h4>
 
 ```bash
 cd <project_directory>
@@ -47,7 +47,7 @@ $ ionic cordova run android
 
 
 
-<h4>##Features</h4>
+<h4>##Current Features</h4>
 
 - Login with Facebook
 - Play Offline !!
