@@ -5,6 +5,8 @@
 
 <h3>MULTY FLAPPYBIRD</h3>
 
+<p>The application that bring the most popular game in the past which is Flappybird to be implemented as a hybrid game application.</p>
+
 <img src="https://github.com/ffapns/MultiplayerFlappyBird/blob/master/Utilities/MultyFlappyBird@2x.png">
 
 
@@ -18,6 +20,9 @@ npm install -g cordova ionic
 ```
 
 2. Download the project and go into the project directory with your console
+```bash
+git clone https://github.com/ffapns/MultiplayerFlappyBird
+```
 
 3. Install Dependencies by typing npm install in your console
 ```bash
@@ -59,14 +64,25 @@ $ ionic cordova run android
 <img src="https://github.com/ffapns/MultiplayerFlappyBird/blob/master/Utilities/Prototype.png">
 
 
-# Architecture
-- [Ionic 2](https://ionicframework.com) & [Cordova](https://cordova.apache.org) - The hybrid application framework
+# Framework & API
+-[Ionic 2](https://ionicframework.com) & [Cordova](https://cordova.apache.org) - The hybrid application framework
 - [Firebase](https://firebase.google.com) - Used for authentication, realtime database, cloud storage and hosting
-
-
-# API
 - [Phaser](http://phaser.io/) - Desktop & Mobile HTML5 Game Framework
 - [AngularFire](https://github.com/angular/angularfire2) - The official library for Firebase and Angular
+
+
+
+# Software Main Architecture
+<h4>Game Architecture</h4>
+   <p>This is the state based</p> 
+   <p>
+    <ul>
+        <li>Boot: The game starter</li>
+         <li>Preload: Load resource into the game</li>
+          <li>GameTitle: Start the game</li>
+           <li>GameOver: Game end</li>
+    </ul>
+   </p>
 
 <h4>##What's coming next?</h4>
 
