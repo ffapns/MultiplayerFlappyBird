@@ -50,4 +50,8 @@ export class HomePage {
       return this.userProfile;
     }
 
+    play(){
+      this.navCtrl.push(GamePage);
+    }
+
 }

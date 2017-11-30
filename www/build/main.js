@@ -1,71 +1,6 @@
 webpackJsonp([1],{
 
-/***/ 170:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__(1);
-var ionic_angular_1 = __webpack_require__(54);
-var game_1 = __webpack_require__(181);
-var firebase_1 = __webpack_require__(83);
-var LandingPage = (function () {
-    function LandingPage(navCtrl, firebaseProvider, param) {
-        this.navCtrl = navCtrl;
-        this.firebaseProvider = firebaseProvider;
-        this.userProfile = param.get("userProfile");
-        console.log(this.userProfile);
-    }
-    LandingPage.prototype.StartGame = function () {
-        this.navCtrl.push(game_1.GamePage);
-    };
-    LandingPage.prototype.logout = function () {
-        this.navCtrl.popToRoot();
-    };
-    return LandingPage;
-}());
-LandingPage = __decorate([
-    ionic_angular_1.IonicPage(),
-    core_1.Component({
-        selector: 'page-landing',template:/*ion-inline-start:"C:\Users\fifap\Desktop\mygame\src\pages\landing\landing.html"*/'<ion-content padding class="backgound-image home">\n\n    <ion-grid>\n\n        <ion-row>\n\n            <ion-col col-12>\n                <ion-img style="width: 250px; height: 150px; background: none !important" src="../assets/images/multyFlappyBird.png"></ion-img>\n            </ion-col>\n        </ion-row>\n\n\n        <ion-row>\n            <ion-col col-12>\n                <ion-content>\n                    <ion-list *ngIf="userProfile">\n                        <ion-item style="text-align: center;">\n                            <ion-img style="width: 100px; height: 100px; background: none !important" src="{{userProfile.photoURL}}"></ion-img>\n                        </ion-item>\n                        <ion-item style="text-align: center;">\n                            <h2>Name</h2>\n                            <p>{{userProfile.displayName}}</p>\n                        </ion-item>\n\n                        <ion-item style="text-align: center;">\n                            <h2>Email</h2>\n                            <p>{{userProfile.email}}</p>\n                        </ion-item>\n\n                        <ion-item style="text-align: center;">\n                            <button ion-button color="dark" outline (click)="StartGame()">Start Game</button>\n                        </ion-item>\n                        <ion-item style="text-align: center;">\n                            <button ion-button color="dark" outline (click)="logout()">SignOut</button>\n                        </ion-item>\n                    </ion-list>\n                </ion-content>\n            </ion-col>\n        </ion-row>\n\n    </ion-grid>\n\n\n</ion-content>'/*ion-inline-end:"C:\Users\fifap\Desktop\mygame\src\pages\landing\landing.html"*/,
-    }),
-    __metadata("design:paramtypes", [ionic_angular_1.NavController,
-        firebase_1.FirebaseProvider,
-        ionic_angular_1.NavParams])
-], LandingPage);
-exports.LandingPage = LandingPage;
-//# sourceMappingURL=landing.js.map
-
-/***/ }),
-
-/***/ 180:
-/***/ (function(module, exports) {
-
-function webpackEmptyAsyncContext(req) {
-	// Here Promise.resolve().then() is used instead of new Promise() to prevent
-	// uncatched exception popping up in devtools
-	return Promise.resolve().then(function() {
-		throw new Error("Cannot find module '" + req + "'.");
-	});
-}
-webpackEmptyAsyncContext.keys = function() { return []; };
-webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
-module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 180;
-
-/***/ }),
-
-/***/ 181:
+/***/ 110:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -274,6 +209,71 @@ var Game = (function (_super) {
 
 /***/ }),
 
+/***/ 171:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(1);
+var ionic_angular_1 = __webpack_require__(54);
+var game_1 = __webpack_require__(110);
+var firebase_1 = __webpack_require__(83);
+var LandingPage = (function () {
+    function LandingPage(navCtrl, firebaseProvider, param) {
+        this.navCtrl = navCtrl;
+        this.firebaseProvider = firebaseProvider;
+        this.userProfile = param.get("userProfile");
+        console.log(this.userProfile);
+    }
+    LandingPage.prototype.StartGame = function () {
+        this.navCtrl.push(game_1.GamePage);
+    };
+    LandingPage.prototype.logout = function () {
+        this.navCtrl.popToRoot();
+    };
+    return LandingPage;
+}());
+LandingPage = __decorate([
+    ionic_angular_1.IonicPage(),
+    core_1.Component({
+        selector: 'page-landing',template:/*ion-inline-start:"C:\Users\fifap\Desktop\mygame\src\pages\landing\landing.html"*/'<ion-content padding class="backgound-image home">\n\n    <ion-grid>\n\n        <ion-row>\n\n            <ion-col col-12>\n                <ion-img style="width: 250px; height: 150px; background: none !important" src="../assets/images/multyFlappyBird.png"></ion-img>\n            </ion-col>\n        </ion-row>\n\n\n        <ion-row>\n            <ion-col col-12>\n                <ion-content>\n                    <ion-list *ngIf="userProfile">\n                        <ion-item style="text-align: center;">\n                            <ion-img style="width: 100px; height: 100px; background: none !important" src="{{userProfile.photoURL}}"></ion-img>\n                        </ion-item>\n                        <ion-item style="text-align: center;">\n                            <h2>Name</h2>\n                            <p>{{userProfile.displayName}}</p>\n                        </ion-item>\n\n                        <ion-item style="text-align: center;">\n                            <h2>Email</h2>\n                            <p>{{userProfile.email}}</p>\n                        </ion-item>\n\n                        <ion-item style="text-align: center;">\n                            <button ion-button color="dark" outline (click)="StartGame()">Start Game</button>\n                        </ion-item>\n                        <ion-item style="text-align: center;">\n                            <button ion-button color="dark" outline (click)="logout()">SignOut</button>\n                        </ion-item>\n                    </ion-list>\n                </ion-content>\n            </ion-col>\n        </ion-row>\n\n    </ion-grid>\n\n\n</ion-content>'/*ion-inline-end:"C:\Users\fifap\Desktop\mygame\src\pages\landing\landing.html"*/,
+    }),
+    __metadata("design:paramtypes", [ionic_angular_1.NavController,
+        firebase_1.FirebaseProvider,
+        ionic_angular_1.NavParams])
+], LandingPage);
+exports.LandingPage = LandingPage;
+//# sourceMappingURL=landing.js.map
+
+/***/ }),
+
+/***/ 181:
+/***/ (function(module, exports) {
+
+function webpackEmptyAsyncContext(req) {
+	// Here Promise.resolve().then() is used instead of new Promise() to prevent
+	// uncatched exception popping up in devtools
+	return Promise.resolve().then(function() {
+		throw new Error("Cannot find module '" + req + "'.");
+	});
+}
+webpackEmptyAsyncContext.keys = function() { return []; };
+webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
+module.exports = webpackEmptyAsyncContext;
+webpackEmptyAsyncContext.id = 181;
+
+/***/ }),
+
 /***/ 261:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -318,9 +318,10 @@ var firebase_1 = __webpack_require__(83);
 // import { GamePage } from './../game/game';
 var core_1 = __webpack_require__(1);
 var ionic_angular_1 = __webpack_require__(54);
-var database_1 = __webpack_require__(110);
+var database_1 = __webpack_require__(111);
 var auth_service_1 = __webpack_require__(306);
-var landing_1 = __webpack_require__(170);
+var game_1 = __webpack_require__(110);
+var landing_1 = __webpack_require__(171);
 var HomePage = (function () {
     function HomePage(navCtrl, db, authProvider, firebaseProvider) {
         this.navCtrl = navCtrl;
@@ -338,11 +339,14 @@ var HomePage = (function () {
         this.navCtrl.push(landing_1.LandingPage, { userProfile: this.userProfile });
         return this.userProfile;
     };
+    HomePage.prototype.play = function () {
+        this.navCtrl.push(game_1.GamePage);
+    };
     return HomePage;
 }());
 HomePage = __decorate([
     core_1.Component({
-        selector: 'page-home',template:/*ion-inline-start:"C:\Users\fifap\Desktop\mygame\src\pages\home\home.html"*/'<ion-content padding class="backgound-image home">\n\n    <ion-grid>\n\n        <ion-row>\n\n            <ion-col col-12>\n                <ion-img style="width: 250px; height: 150px; background: none !important" src="../assets/images/multyFlappyBird.png"></ion-img>\n            </ion-col>\n        </ion-row>\n\n\n\n        <ion-row>\n            <ion-col col-12>\n                <ion-img style="width: 100px; height: 100px; background: none !important" src="../assets/images/tenor.gif"></ion-img>\n            </ion-col>\n        </ion-row>\n\n\n        <ion-row>\n            <ion-col col-12>\n                <button ion-button color="dark" outline (click)="signInWithFacebook()">Signin with Facebook</button>\n            </ion-col>\n        </ion-row>\n\n    </ion-grid>\n\n\n</ion-content>'/*ion-inline-end:"C:\Users\fifap\Desktop\mygame\src\pages\home\home.html"*/,
+        selector: 'page-home',template:/*ion-inline-start:"C:\Users\fifap\Desktop\mygame\src\pages\home\home.html"*/'<ion-content padding class="backgound-image home">\n\n    <ion-grid>\n\n        <ion-row>\n\n            <ion-col col-12>\n                <ion-img style="width: 250px; height: 150px; background: none !important" src="../assets/images/multyFlappyBird.png"></ion-img>\n            </ion-col>\n        </ion-row>\n\n\n\n        <ion-row>\n            <ion-col col-12>\n                <ion-img style="width: 100px; height: 100px; background: none !important" src="../assets/images/tenor.gif"></ion-img>\n            </ion-col>\n        </ion-row>\n\n\n        <ion-row>\n            <ion-col col-12>\n                <button ion-button color="dark" outline (click)="signInWithFacebook()">Signin with Facebook</button>\n\n            </ion-col>\n        </ion-row>\n\n    </ion-grid>\n\n\n</ion-content>'/*ion-inline-end:"C:\Users\fifap\Desktop\mygame\src\pages\home\home.html"*/,
     }),
     __metadata("design:paramtypes", [ionic_angular_1.NavController,
         database_1.AngularFireDatabase,
@@ -454,7 +458,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var game_1 = __webpack_require__(181);
+var game_1 = __webpack_require__(110);
 var platform_browser_1 = __webpack_require__(48);
 var core_1 = __webpack_require__(1);
 var ionic_angular_1 = __webpack_require__(54);
@@ -462,7 +466,7 @@ var splash_screen_1 = __webpack_require__(301);
 var status_bar_1 = __webpack_require__(304);
 var app_component_1 = __webpack_require__(566);
 var home_1 = __webpack_require__(305);
-var landing_1 = __webpack_require__(170);
+var landing_1 = __webpack_require__(171);
 // Import the AF2 Module
 var http_1 = __webpack_require__(828);
 var firebase_1 = __webpack_require__(83);
@@ -472,7 +476,7 @@ var facebook_1 = __webpack_require__(829);
 // import * as io from 'socket.io-client';
 // import { HttpserviceProvider } from '../providers/httpservice/httpservice';
 var angularfire2_1 = __webpack_require__(830);
-var database_1 = __webpack_require__(110);
+var database_1 = __webpack_require__(111);
 var auth_1 = __webpack_require__(307);
 // AF2 Settings
 exports.firebaseConfig = {
@@ -726,7 +730,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var database_1 = __webpack_require__(110);
+var database_1 = __webpack_require__(111);
 var core_1 = __webpack_require__(1);
 var FirebaseProvider = (function () {
     function FirebaseProvider(af) {

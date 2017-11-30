@@ -1,80 +1,6 @@
-webpackJsonp([0],{
+webpackJsonp([1],{
 
-/***/ 109:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var database_1 = __webpack_require__(110);
-var core_1 = __webpack_require__(1);
-var FirebaseProvider = (function () {
-    function FirebaseProvider(af) {
-        this.af = af;
-        this.userList = af.list('/Users');
-    }
-    FirebaseProvider.prototype.assignPlayerToServer = function (uIp) {
-        var data = [{
-                "uip": uIp.ip,
-            }];
-        this.userList.push(data);
-    };
-    FirebaseProvider.prototype.getUserlist = function () {
-        this.userList = this.af.list('/Users');
-        console.log(this.userList);
-        return this.userList;
-    };
-    FirebaseProvider.prototype.getShareConstant = function () {
-        this.shareConstant = this.af.object('/Constant');
-        console.log(this.shareConstant);
-        return this.shareConstant;
-    };
-    FirebaseProvider.prototype.saveUserProfile = function (userProfile) {
-        var ref = this.af.object('Users/' + userProfile.uid);
-        return ref.set(userProfile).then(function () {
-            return console.log(userProfile);
-        }).catch(function (_error) {
-            return _error;
-        });
-    };
-    return FirebaseProvider;
-}());
-FirebaseProvider = __decorate([
-    core_1.Injectable(),
-    __metadata("design:paramtypes", [database_1.AngularFireDatabase])
-], FirebaseProvider);
-exports.FirebaseProvider = FirebaseProvider;
-//# sourceMappingURL=firebase.js.map
-
-/***/ }),
-
-/***/ 179:
-/***/ (function(module, exports) {
-
-function webpackEmptyAsyncContext(req) {
-	// Here Promise.resolve().then() is used instead of new Promise() to prevent
-	// uncatched exception popping up in devtools
-	return Promise.resolve().then(function() {
-		throw new Error("Cannot find module '" + req + "'.");
-	});
-}
-webpackEmptyAsyncContext.keys = function() { return []; };
-webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
-module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 179;
-
-/***/ }),
-
-/***/ 180:
+/***/ 110:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -99,22 +25,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var firebase_1 = __webpack_require__(109);
+var firebase_1 = __webpack_require__(83);
 var core_1 = __webpack_require__(1);
-var ionic_angular_1 = __webpack_require__(69);
-var boot_1 = __webpack_require__(555);
-var gameover_1 = __webpack_require__(556);
-var gametitle_1 = __webpack_require__(557);
-var preload_1 = __webpack_require__(558);
+var ionic_angular_1 = __webpack_require__(54);
+var boot_1 = __webpack_require__(556);
+var gameover_1 = __webpack_require__(557);
+var gametitle_1 = __webpack_require__(558);
+var preload_1 = __webpack_require__(559);
 var GamePage = (function () {
     function GamePage(navCtrl, _firebase) {
-        // console.log(this.shareConstant);
         this.navCtrl = navCtrl;
         this._firebase = _firebase;
     }
     GamePage.prototype.ionViewDidLoad = function () {
-        // var myGame = new Game('content', this.playerName, this.color);
-        // myGame.connect({name: this.playerName, color: this.color});
         var myGame = new Game();
     };
     return GamePage;
@@ -150,7 +73,7 @@ var Main = (function (_super) {
         this.breakables = this.game.add.group();
         this.breakables.enableBody = true;
         this.breakables.createMultiple(20, 'tile2');
-        this.introText = this.game.add.text(this.game.world.centerX, 400, '- click to restart -', { font: "40px Arial", fill: "#ffffff", align: "center" });
+        this.introText = this.game.add.text(this.game.world.centerX, this.game.world.centerY, '- click to restart -', { font: "40px Arial", fill: "#ffffff", align: "center" });
         this.introText.anchor.setTo(0.5, 0.5);
         this.introText.visible = false;
         //Add the player to the screen
@@ -191,7 +114,7 @@ var Main = (function (_super) {
         this.game.input.onTap.addOnce(this.restart, this);
     };
     Main.prototype.restart = function () {
-        this.game.state.start('Main');
+        this.game.state.start('Boot');
     };
     Main.prototype.addTile = function (x, y, immovable) {
         var tile;
@@ -265,7 +188,6 @@ var Main = (function (_super) {
     };
     return Main;
 }(Phaser.State));
-Main.jumpSpeed = 800;
 var Game = (function (_super) {
     __extends(Game, _super);
     // socket: SocketIOClient.Socket;
@@ -278,7 +200,7 @@ var Game = (function (_super) {
         _this.state.add('Main', Main);
         _this.state.add('GameOver', gameover_1.GameOver);
         //Start the first state
-        _this.state.start('Main');
+        _this.state.start('Boot');
         return _this;
     }
     return Game;
@@ -287,24 +209,7 @@ var Game = (function (_super) {
 
 /***/ }),
 
-/***/ 260:
-/***/ (function(module, exports) {
-
-function webpackEmptyAsyncContext(req) {
-	// Here Promise.resolve().then() is used instead of new Promise() to prevent
-	// uncatched exception popping up in devtools
-	return Promise.resolve().then(function() {
-		throw new Error("Cannot find module '" + req + "'.");
-	});
-}
-webpackEmptyAsyncContext.keys = function() { return []; };
-webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
-module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 260;
-
-/***/ }),
-
-/***/ 304:
+/***/ 171:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -319,65 +224,78 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var firebase_1 = __webpack_require__(109);
-// import { GamePage } from './../game/game';
 var core_1 = __webpack_require__(1);
-var ionic_angular_1 = __webpack_require__(69);
-var database_1 = __webpack_require__(110);
-var auth_service_1 = __webpack_require__(305);
-var game_1 = __webpack_require__(180);
-var HomePage = (function () {
-    function HomePage(navCtrl, db, authProvider, firebaseProvider, navParams) {
+var ionic_angular_1 = __webpack_require__(54);
+var game_1 = __webpack_require__(110);
+var firebase_1 = __webpack_require__(83);
+var LandingPage = (function () {
+    function LandingPage(navCtrl, firebaseProvider, param) {
         this.navCtrl = navCtrl;
-        this.authProvider = authProvider;
         this.firebaseProvider = firebaseProvider;
-        this.navParams = navParams;
-        // this.playeName = navParams.get('playerName');
-        // this.color = navParams.get('color');
+        this.userProfile = param.get("userProfile");
+        console.log(this.userProfile);
     }
-    HomePage.prototype.signInWithFacebook = function () {
-        var _this = this;
-        this.authProvider.signInWithFacebook()
-            .then(function () { return _this.onSignInSuccess(); });
-    };
-    HomePage.prototype.onSignInSuccess = function () {
-        this.userProfile = this.authProvider.getUserProfile();
-        // console.log('====================================');
-        // console.log(this.userProfile.user.uid);
-        // console.log('====================================');
-        this.firebaseProvider.saveUserProfile(this.userProfile);
-        this.navCtrl.push(game_1.GamePage);
-        return this.userProfile;
-    };
-    HomePage.prototype.StartGame = function () {
+    LandingPage.prototype.StartGame = function () {
         this.navCtrl.push(game_1.GamePage);
     };
-    HomePage.prototype.playGame = function () {
-        // this.httpserivceProvider.getUserIp().subscribe(
-        //   data => {
-        //       this.uip = JSON.stringify(data);
-        //       console.log(this.uip);
-        //   },
-        //   error => console.log(error),
-        //   () => console.log("done")
-        // );
-        // console.log(this.playerName);
-        // console.log(this.color);
+    LandingPage.prototype.logout = function () {
+        this.navCtrl.popToRoot();
     };
-    return HomePage;
+    return LandingPage;
 }());
-HomePage = __decorate([
+LandingPage = __decorate([
+    ionic_angular_1.IonicPage(),
     core_1.Component({
-        selector: 'page-home',template:/*ion-inline-start:"C:\Users\fifap\Desktop\mygame\src\pages\home\home.html"*/'<ion-content padding class="backgound-image home">\n\n    <ion-grid>\n        <ion-row>\n            <ion-col col-12>\n                <div id="gs-loader-anim-box">\n                    <div id="gs-loader-anim-bird"></div>\n                </div>\n                <!-- <ion-img width="80" height="80" src="../assets/images/flappygif.gif"></ion-img> -->\n            </ion-col>\n        </ion-row>\n        <ion-row>\n            <ion-col col-12>\n                <h2 id="gs-loader-text">Welcome to Multy Flappybird</h2>\n            </ion-col>\n        </ion-row>\n\n        <ion-row>\n            <ion-col col-12>\n                <!-- <button ion-button color="dark" outline (click)="signInWithFacebook()">Signin with Facebook</button> -->\n                <button ion-button color="dark" outline (click)="StartGame()">PLAY</button>\n            </ion-col>\n        </ion-row>\n\n    </ion-grid>\n\n\n</ion-content>'/*ion-inline-end:"C:\Users\fifap\Desktop\mygame\src\pages\home\home.html"*/,
+        selector: 'page-landing',template:/*ion-inline-start:"C:\Users\fifap\Desktop\mygame\src\pages\landing\landing.html"*/'<ion-content padding class="backgound-image home">\n\n    <ion-grid>\n\n        <ion-row>\n\n            <ion-col col-12>\n                <ion-img style="width: 250px; height: 150px; background: none !important" src="../assets/images/multyFlappyBird.png"></ion-img>\n            </ion-col>\n        </ion-row>\n\n\n        <ion-row>\n            <ion-col col-12>\n                <ion-content>\n                    <ion-list *ngIf="userProfile">\n                        <ion-item style="text-align: center;">\n                            <ion-img style="width: 100px; height: 100px; background: none !important" src="{{userProfile.photoURL}}"></ion-img>\n                        </ion-item>\n                        <ion-item style="text-align: center;">\n                            <h2>Name</h2>\n                            <p>{{userProfile.displayName}}</p>\n                        </ion-item>\n\n                        <ion-item style="text-align: center;">\n                            <h2>Email</h2>\n                            <p>{{userProfile.email}}</p>\n                        </ion-item>\n\n                        <ion-item style="text-align: center;">\n                            <button ion-button color="dark" outline (click)="StartGame()">Start Game</button>\n                        </ion-item>\n                        <ion-item style="text-align: center;">\n                            <button ion-button color="dark" outline (click)="logout()">SignOut</button>\n                        </ion-item>\n                    </ion-list>\n                </ion-content>\n            </ion-col>\n        </ion-row>\n\n    </ion-grid>\n\n\n</ion-content>'/*ion-inline-end:"C:\Users\fifap\Desktop\mygame\src\pages\landing\landing.html"*/,
     }),
     __metadata("design:paramtypes", [ionic_angular_1.NavController,
-        database_1.AngularFireDatabase,
-        auth_service_1.AuthServiceProvider,
         firebase_1.FirebaseProvider,
         ionic_angular_1.NavParams])
-], HomePage);
-exports.HomePage = HomePage;
-//# sourceMappingURL=home.js.map
+], LandingPage);
+exports.LandingPage = LandingPage;
+//# sourceMappingURL=landing.js.map
+
+/***/ }),
+
+/***/ 181:
+/***/ (function(module, exports) {
+
+function webpackEmptyAsyncContext(req) {
+	// Here Promise.resolve().then() is used instead of new Promise() to prevent
+	// uncatched exception popping up in devtools
+	return Promise.resolve().then(function() {
+		throw new Error("Cannot find module '" + req + "'.");
+	});
+}
+webpackEmptyAsyncContext.keys = function() { return []; };
+webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
+module.exports = webpackEmptyAsyncContext;
+webpackEmptyAsyncContext.id = 181;
+
+/***/ }),
+
+/***/ 261:
+/***/ (function(module, exports, __webpack_require__) {
+
+var map = {
+	"../pages/landing/landing.module": [
+		831,
+		0
+	]
+};
+function webpackAsyncContext(req) {
+	var ids = map[req];
+	if(!ids)
+		return Promise.reject(new Error("Cannot find module '" + req + "'."));
+	return __webpack_require__.e(ids[1]).then(function() {
+		return __webpack_require__(ids[0]);
+	});
+};
+webpackAsyncContext.keys = function webpackAsyncContextKeys() {
+	return Object.keys(map);
+};
+webpackAsyncContext.id = 261;
+module.exports = webpackAsyncContext;
 
 /***/ }),
 
@@ -396,11 +314,70 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var firebase_1 = __webpack_require__(83);
+// import { GamePage } from './../game/game';
 var core_1 = __webpack_require__(1);
-var auth_1 = __webpack_require__(306);
+var ionic_angular_1 = __webpack_require__(54);
+var database_1 = __webpack_require__(111);
+var auth_service_1 = __webpack_require__(306);
+var game_1 = __webpack_require__(110);
+var landing_1 = __webpack_require__(171);
+var HomePage = (function () {
+    function HomePage(navCtrl, db, authProvider, firebaseProvider) {
+        this.navCtrl = navCtrl;
+        this.authProvider = authProvider;
+        this.firebaseProvider = firebaseProvider;
+    }
+    HomePage.prototype.signInWithFacebook = function () {
+        var _this = this;
+        this.authProvider.signInWithFacebook()
+            .then(function () { return _this.onSignInSuccess(); });
+    };
+    HomePage.prototype.onSignInSuccess = function () {
+        this.userProfile = this.authProvider.getUserProfile();
+        this.firebaseProvider.saveUserProfile(this.userProfile);
+        this.navCtrl.push(landing_1.LandingPage, { userProfile: this.userProfile });
+        return this.userProfile;
+    };
+    HomePage.prototype.play = function () {
+        this.navCtrl.push(game_1.GamePage);
+    };
+    return HomePage;
+}());
+HomePage = __decorate([
+    core_1.Component({
+        selector: 'page-home',template:/*ion-inline-start:"C:\Users\fifap\Desktop\mygame\src\pages\home\home.html"*/'<ion-content padding class="backgound-image home">\n\n    <ion-grid>\n\n        <ion-row>\n\n            <ion-col col-12>\n                <ion-img style="width: 250px; height: 150px; background: none !important" src="../assets/images/multyFlappyBird.png"></ion-img>\n            </ion-col>\n        </ion-row>\n\n\n\n        <ion-row>\n            <ion-col col-12>\n                <ion-img style="width: 100px; height: 100px; background: none !important" src="../assets/images/tenor.gif"></ion-img>\n            </ion-col>\n        </ion-row>\n\n\n        <ion-row>\n            <ion-col col-12>\n                <button ion-button color="dark" outline (click)="signInWithFacebook()">Signin with Facebook</button>\n                <button ion-button color="dark" outline (click)="play()">Play</button>\n            </ion-col>\n        </ion-row>\n\n    </ion-grid>\n\n\n</ion-content>'/*ion-inline-end:"C:\Users\fifap\Desktop\mygame\src\pages\home\home.html"*/,
+    }),
+    __metadata("design:paramtypes", [ionic_angular_1.NavController,
+        database_1.AngularFireDatabase,
+        auth_service_1.AuthServiceProvider,
+        firebase_1.FirebaseProvider])
+], HomePage);
+exports.HomePage = HomePage;
+//# sourceMappingURL=home.js.map
+
+/***/ }),
+
+/***/ 306:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(1);
+var auth_1 = __webpack_require__(307);
 var firebase = __webpack_require__(39);
-var ionic_angular_1 = __webpack_require__(69);
-var ionic_native_1 = __webpack_require__(567);
+var ionic_angular_1 = __webpack_require__(54);
+var ionic_native_1 = __webpack_require__(568);
 var AuthServiceProvider = (function () {
     function AuthServiceProvider(afAuth, platform) {
         var _this = this;
@@ -418,9 +395,6 @@ var AuthServiceProvider = (function () {
             _this.af = afAuth;
         });
     }
-    AuthServiceProvider.prototype.doLogout = function () {
-        this.af.auth.logout();
-    };
     AuthServiceProvider.prototype.signInWithFacebook = function () {
         var _this = this;
         if (this.platform.is('cordova')) {
@@ -459,20 +433,20 @@ exports.AuthServiceProvider = AuthServiceProvider;
 
 /***/ }),
 
-/***/ 461:
+/***/ 462:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var platform_browser_dynamic_1 = __webpack_require__(462);
-var app_module_1 = __webpack_require__(466);
+var platform_browser_dynamic_1 = __webpack_require__(463);
+var app_module_1 = __webpack_require__(467);
 platform_browser_dynamic_1.platformBrowserDynamic().bootstrapModule(app_module_1.AppModule);
 //# sourceMappingURL=main.js.map
 
 /***/ }),
 
-/***/ 466:
+/***/ 467:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -484,25 +458,26 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var game_1 = __webpack_require__(180);
+var game_1 = __webpack_require__(110);
 var platform_browser_1 = __webpack_require__(48);
 var core_1 = __webpack_require__(1);
-var ionic_angular_1 = __webpack_require__(69);
-var splash_screen_1 = __webpack_require__(300);
-var status_bar_1 = __webpack_require__(303);
-var app_component_1 = __webpack_require__(565);
-var home_1 = __webpack_require__(304);
+var ionic_angular_1 = __webpack_require__(54);
+var splash_screen_1 = __webpack_require__(301);
+var status_bar_1 = __webpack_require__(304);
+var app_component_1 = __webpack_require__(566);
+var home_1 = __webpack_require__(305);
+var landing_1 = __webpack_require__(171);
 // Import the AF2 Module
-var http_1 = __webpack_require__(827);
-var firebase_1 = __webpack_require__(109);
-var auth_service_1 = __webpack_require__(305);
-var facebook_1 = __webpack_require__(828);
+var http_1 = __webpack_require__(828);
+var firebase_1 = __webpack_require__(83);
+var auth_service_1 = __webpack_require__(306);
+var facebook_1 = __webpack_require__(829);
 // import * as $ from 'jquery';
 // import * as io from 'socket.io-client';
 // import { HttpserviceProvider } from '../providers/httpservice/httpservice';
-var angularfire2_1 = __webpack_require__(829);
-var database_1 = __webpack_require__(110);
-var auth_1 = __webpack_require__(306);
+var angularfire2_1 = __webpack_require__(830);
+var database_1 = __webpack_require__(111);
+var auth_1 = __webpack_require__(307);
 // AF2 Settings
 exports.firebaseConfig = {
     apiKey: 'AIzaSyCVYSPaG7oAxmNJXmyE84AIR7VWivOmDdM',
@@ -523,10 +498,15 @@ AppModule = __decorate([
             app_component_1.MyApp,
             home_1.HomePage,
             game_1.GamePage,
+            landing_1.LandingPage,
         ],
         imports: [
             platform_browser_1.BrowserModule,
-            ionic_angular_1.IonicModule.forRoot(app_component_1.MyApp),
+            ionic_angular_1.IonicModule.forRoot(app_component_1.MyApp, {}, {
+                links: [
+                    { loadChildren: '../pages/landing/landing.module#LandingPageModule', name: 'LandingPage', segment: 'landing', priority: 'low', defaultHistory: [] }
+                ]
+            }),
             http_1.HttpModule,
             database_1.AngularFireDatabaseModule,
             angularfire2_1.AngularFireModule.initializeApp(exports.firebaseConfig),
@@ -536,6 +516,7 @@ AppModule = __decorate([
             app_component_1.MyApp,
             home_1.HomePage,
             game_1.GamePage,
+            landing_1.LandingPage
         ],
         providers: [
             status_bar_1.StatusBar,
@@ -553,7 +534,7 @@ exports.AppModule = AppModule;
 
 /***/ }),
 
-/***/ 555:
+/***/ 556:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -587,7 +568,7 @@ exports.Boot = Boot;
 
 /***/ }),
 
-/***/ 556:
+/***/ 557:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -620,7 +601,7 @@ exports.GameOver = GameOver;
 
 /***/ }),
 
-/***/ 557:
+/***/ 558:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -653,7 +634,7 @@ exports.GameTitle = GameTitle;
 
 /***/ }),
 
-/***/ 558:
+/***/ 559:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -692,7 +673,7 @@ exports.Preload = Preload;
 
 /***/ }),
 
-/***/ 565:
+/***/ 566:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -708,10 +689,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(1);
-var ionic_angular_1 = __webpack_require__(69);
-var status_bar_1 = __webpack_require__(303);
-var splash_screen_1 = __webpack_require__(300);
-var home_1 = __webpack_require__(304);
+var ionic_angular_1 = __webpack_require__(54);
+var status_bar_1 = __webpack_require__(304);
+var splash_screen_1 = __webpack_require__(301);
+var home_1 = __webpack_require__(305);
 var MyApp = (function () {
     function MyApp(platform, statusBar, splashScreen) {
         this.rootPage = home_1.HomePage;
@@ -732,7 +713,53 @@ MyApp = __decorate([
 exports.MyApp = MyApp;
 //# sourceMappingURL=app.component.js.map
 
+/***/ }),
+
+/***/ 83:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var database_1 = __webpack_require__(111);
+var core_1 = __webpack_require__(1);
+var FirebaseProvider = (function () {
+    function FirebaseProvider(af) {
+        this.af = af;
+        this.userList = af.list('/Users');
+    }
+    FirebaseProvider.prototype.getUserlist = function () {
+        this.userList = this.af.list('/Users');
+        //console.log(this.userList);
+        return this.userList;
+    };
+    FirebaseProvider.prototype.saveUserProfile = function (userProfile) {
+        var ref = this.af.object('Users/' + userProfile.uid);
+        return ref.set(userProfile).then(function () {
+            return console.log(userProfile);
+        }).catch(function (_error) {
+            return _error;
+        });
+    };
+    return FirebaseProvider;
+}());
+FirebaseProvider = __decorate([
+    core_1.Injectable(),
+    __metadata("design:paramtypes", [database_1.AngularFireDatabase])
+], FirebaseProvider);
+exports.FirebaseProvider = FirebaseProvider;
+//# sourceMappingURL=firebase.js.map
+
 /***/ })
 
-},[461]);
+},[462]);
 //# sourceMappingURL=main.js.map
