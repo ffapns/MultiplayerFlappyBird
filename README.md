@@ -55,9 +55,8 @@ $ ionic cordova run android
 
 <h4>##PROTOTYPES</h4>
 
-<img src="https://github.com/ffapns/MultiplayerFlappyBird/blob/Utilities/Screenshots/FlappybirdMainScreen.PNG">
-<img src="https://github.com/ffapns/MultiplayerFlappyBird/blob/Utilities/Screenshots/FlappyBirdPlay.PNG">
-<img src="https://github.com/ffapns/MultiplayerFlappyBird/blob/Utilities/Screenshots/FlappyBird%20GameOver.PNG">
+
+<img src="https://github.com/ffapns/MultiplayerFlappyBird/blob/master/Utilities/Prototype.png">
 
 
 # Architecture
