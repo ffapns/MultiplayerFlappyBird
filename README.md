@@ -66,7 +66,7 @@ $ ionic cordova run android
 
 <h4>Framework & API</h4>
 
--[Ionic 2](https://ionicframework.com) & [Cordova](https://cordova.apache.org) - The hybrid application framework
+- [Ionic 2](https://ionicframework.com) & [Cordova](https://cordova.apache.org) - The hybrid application framework
 - [Firebase](https://firebase.google.com) - Used for authentication, realtime database, cloud storage and hosting
 - [Phaser](http://phaser.io/) - Desktop & Mobile HTML5 Game Framework
 - [AngularFire](https://github.com/angular/angularfire2) - The official library for Firebase and Angular
