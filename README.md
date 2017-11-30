@@ -96,6 +96,8 @@ $ ionic cordova run android
 - Ionic doesn't support for the free phaser but if you want to, you have to buy 
 [IonPhaser](https://market.ionicframework.com/plugins/ionphaser).
 - So, this will cause a bug when you deploy on device which you can't get into the game section.
+- Support only web
+- Some bugs from the Phaser framework that causes the native display problem.
 
 
 # Contributors
