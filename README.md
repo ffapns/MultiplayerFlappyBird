@@ -6,7 +6,7 @@
 <h3>MULTY FLAPPYBIRD</h3>
 
 <p>The application that bring the most popular game in the past which is Flappybird to be implemented as a hybrid game application.</p>
-[embed]https://github.com/ffapns/MultiplayerFlappyBird/blob/master/About-MultyFlappybird.pdf[/embed]
+<a>https://github.com/ffapns/MultiplayerFlappyBird/blob/master/About-MultyFlappybird.pdf</a>
 <img src="https://github.com/ffapns/MultiplayerFlappyBird/blob/master/Utilities/MultyFlappyBird@2x.png">
 
 
